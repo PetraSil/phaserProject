@@ -57,9 +57,9 @@
 
         this.shuttle = this.add.image(400, 550, "shuttle");
         this.shuttle.setScale(1.5);
-
-
       
+        //this.cursors = game.input.keyboard.createCursorKeys();
+        //this.fireButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
     }
 
@@ -105,15 +105,42 @@
 
         if (this.input.activePointer.isDown) {
             if (this.input.activePointer.x > this.shuttle.x) {
-                this.shuttle.x += 9;
+                this.shuttle.x += 10;
             }else if (this.input.activePointer.x < this.shuttle.x) {
-                this.shuttle.x -= 9;
+                this.shuttle.x -= 10;
             }
            
-
         }
        
+        //if (cursors.fireButton.isDown) {
+        //    fire();
+        //}
+
+        if (Phaser.Geom.Intersects.RectangleToRectangle(this.shuttle.getBounds(), this.meteorOne.getBounds())) {
+            this.cameras.main.shake(100);
+
+        }
       
+        if (Phaser.Geom.Intersects.RectangleToRectangle(this.shuttle.getBounds(), this.meteorTwo.getBounds())) {
+            this.cameras.main.shake(100);
+
+        }
+
+        if (Phaser.Geom.Intersects.RectangleToRectangle(this.shuttle.getBounds(), this.meteorThree.getBounds())) {
+            this.cameras.main.shake(100);
+
+        }
+
+        if (Phaser.Geom.Intersects.RectangleToRectangle(this.shuttle.getBounds(), this.meteorFour.getBounds())) {
+            this.cameras.main.shake(100);
+
+        }
+
+        if (Phaser.Geom.Intersects.RectangleToRectangle(this.shuttle.getBounds(), this.meteorFive.getBounds())) {
+            this.cameras.main.shake(100);
+
+        }
+
 
     }
 
